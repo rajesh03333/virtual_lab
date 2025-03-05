@@ -165,16 +165,15 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <header className="bg-[#0B3F75] text-white relative z-50">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
                 <Atom className="w-8 h-8" />
-                <span className="text-2xl font-bold">PhET</span>
+                <span className="text-2xl font-bold">VisionLab</span>
               </div>
-              <div className="flex items-center gap-4">
+              <div className="hidden md:flex items-center gap-4">
                 <DropdownMenu
                   {...dropdowns.simulations}
                   isOpen={activeDropdown === 'simulations'}
@@ -197,16 +196,25 @@ function HomePage() {
                 />
               </div>
             </div>
-            <DropdownMenu
-              {...dropdowns.languages}
-              isOpen={activeDropdown === 'languages'}
-              onToggle={() => toggleDropdown('languages')}
-            />
+            {/* Show Simulations dropdown on mobile instead of Languages */}
+            <div className="md:hidden">
+              <DropdownMenu
+                {...dropdowns.simulations}
+                isOpen={activeDropdown === 'simulations'}
+                onToggle={() => toggleDropdown('simulations')}
+              />
+            </div>
+            <div className="hidden md:block">
+              <DropdownMenu
+                {...dropdowns.languages}
+                isOpen={activeDropdown === 'languages'}
+                onToggle={() => toggleDropdown('languages')}
+              />
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Overlay to close dropdowns when clicking outside */}
       {activeDropdown && (
         <div 
           className="fixed inset-0 z-40"
@@ -218,14 +226,14 @@ function HomePage() {
       <div className="bg-[#0B3F75] text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl font-bold mb-6">Interactive Science and Math Simulations</h1>
-            <p className="text-xl mb-8">Free educational resources for teachers and students</p>
+            <h1 className="text-3xl md:text-4xl font-bold mb-6">Interactive Science and Math Simulations</h1>
+            <p className="text-lg md:text-xl mb-8">Free educational resources for teachers and students</p>
             <div className="relative max-w-xl mx-auto">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search for simulations..."
-                className="w-full pl-12 pr-4 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="w-full pl-12 pr-4 py-3 rounded-full text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
               />
             </div>
           </div>
@@ -234,8 +242,8 @@ function HomePage() {
 
       {/* Subject Categories */}
       <div className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-8 text-center">Browse by Subject</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Browse by Subject</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="flex items-center gap-4 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <Beaker className="w-8 h-8 text-purple-500" />
             <div>
@@ -269,14 +277,14 @@ function HomePage() {
 
       {/* Featured Simulations */}
       <div className="container mx-auto px-4 py-16">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold">Featured Simulations</h2>
-          <button className="flex items-center gap-2 text-blue-600 hover:text-blue-800">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold">Featured Simulations</h2>
+          <button className="flex items-center gap-2 text-blue-600 hover:text-blue-800 mt-4 md:mt-0">
             View all
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {simulations.map((sim, index) => (
             <SimulationCard key={index} {...sim} />
           ))}
@@ -286,8 +294,8 @@ function HomePage() {
       {/* Call to Action */}
       <div className="bg-[#0B3F75] text-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Start Learning?</h2>
-          <p className="text-xl mb-8">Join millions of students and teachers using PhET simulations</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">Ready to Start Learning?</h2>
+          <p className="text-lg md:text-xl mb-8">Join millions of students and teachers using PhET simulations</p>
           <button className="bg-white text-[#0B3F75] px-8 py-3 rounded-full font-bold hover:bg-blue-100 transition-colors flex items-center gap-2 mx-auto">
             <Download className="w-5 h-5" />
             Get Started Now
@@ -298,9 +306,9 @@ function HomePage() {
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-bold text-lg mb-4">About PhET</h3>
+              <h3 className="font-bold text-lg mb-4">About VisionLab</h3>
               <ul className="space-y-2">
                 <li><a href="#" className="hover:text-blue-300">Our Mission</a></li>
                 <li><a href="#" className="hover:text-blue-300">History</a></li>
