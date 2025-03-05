@@ -2,50 +2,50 @@ import React from "react";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-function Physics() {
+function Mathematics() {
   const navigate = useNavigate();
 
   const experiments = [
     {
-      title: "Ohm's Law",
-      category: "Electricity and Magnetism",
+      title: "Pythagorean Theorem Verification",
+      category: "Geometry",
       theory:
-        "Study the relationship between voltage, current, and resistance in electrical circuits.",
+        "Verify the relationship between the sides of a right triangle (a² + b² = c²).",
       image:
-        "https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=800",
+        "https://images.unsplash.com/photo-1632933731592-564d693e754e?w=800",
       procedures: [
-        "Set up the circuit with ammeter and voltmeter",
-        "Vary the voltage using the power supply",
-        "Record current readings at different voltages",
-        "Plot V-I graph and verify linearity",
+        "Select different lengths for sides a and b",
+        "Calculate the hypotenuse using the theorem",
+        "Measure the actual hypotenuse length",
+        "Compare calculated and measured values",
       ],
     },
     {
-      title: "Verification of Hooke's Law",
-      category: "Mechanics",
+      title: "Quadratic Equation Solver",
+      category: "Algebra",
       theory:
-        "Investigate the relationship between force and extension in a spring.",
+        "Explore the nature of roots in quadratic equations using the discriminant.",
       image:
-        "https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=800",
+        "https://images.unsplash.com/photo-1611080626919-63f575e34e77?w=800",
       procedures: [
-        "Set up the spring with a scale",
-        "Add weights incrementally",
-        "Measure extension for each weight",
-        "Plot force vs extension graph",
+        "Input coefficients a, b, and c",
+        "Calculate discriminant (b² - 4ac)",
+        "Determine number and type of roots",
+        "Solve using quadratic formula",
       ],
     },
     {
-      title: "Simple Pendulum",
-      category: "Oscillations",
+      title: "Sine Wave Analysis",
+      category: "Trigonometry",
       theory:
-        "Study the motion of a simple pendulum and calculate acceleration due to gravity.",
+        "Study properties of sine waves including amplitude, frequency, and period.",
       image:
-        "https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=800",
+        "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800",
       procedures: [
-        "Set up pendulum with known length",
-        "Record time for 20 oscillations",
-        "Calculate time period",
-        "Determine value of 'g'",
+        "Set initial amplitude and frequency",
+        "Generate the sine wave graph",
+        "Measure period and wavelength",
+        "Analyze phase shift effects",
       ],
     },
   ];
@@ -63,31 +63,28 @@ function Physics() {
 
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
           <h1 className="text-3xl font-bold mb-4">
-            Physics Virtual Laboratory
+            Mathematics Virtual Laboratory
           </h1>
           <p className="text-gray-600 mb-6">
-            Welcome to the Physics Virtual Lab! Here you can perform various
-            physics experiments in a simulated environment. These virtual
-            experiments are designed to help you understand physics concepts
-            better through practical application.
+            Welcome to the Mathematics Virtual Lab! Explore mathematical
+            concepts through interactive experiments designed to enhance your
+            understanding of geometry, algebra, and trigonometry.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-blue-50 p-6 rounded-lg text-center">
-              <h3 className="font-bold text-xl mb-2">15+ Experiments</h3>
+              <h3 className="font-bold text-xl mb-2">10+ Experiments</h3>
               <p className="text-gray-600">
-                Comprehensive collection of physics experiments
+                Wide range of mathematical explorations
               </p>
             </div>
             <div className="bg-green-50 p-6 rounded-lg text-center">
-              <h3 className="font-bold text-xl mb-2">Real-time Simulation</h3>
-              <p className="text-gray-600">
-                Interactive virtual lab environment
-              </p>
+              <h3 className="font-bold text-xl mb-2">Interactive Graphs</h3>
+              <p className="text-gray-600">Visual mathematical simulations</p>
             </div>
             <div className="bg-purple-50 p-6 rounded-lg text-center">
-              <h3 className="font-bold text-xl mb-2">Detailed Theory</h3>
-              <p className="text-gray-600">Complete theoretical background</p>
+              <h3 className="font-bold text-xl mb-2">Step-by-Step Solutions</h3>
+              <p className="text-gray-600">Detailed problem-solving guidance</p>
             </div>
           </div>
         </div>
@@ -141,4 +138,4 @@ function Physics() {
   );
 }
 
-export default Physics;
+export default Mathematics;
